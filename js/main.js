@@ -1,11 +1,26 @@
+/*  ---------------------------------------------------
+  Template Name: Activitar
+  Description:  Activitar Fitness HTML Template
+  Author: Colorlib
+  Author URI: https://colorlib.com
+  Version: 1.0
+  Created: Colorlib
+---------------------------------------------------------  */
+
 'use strict';
 
 (function ($) {
 
+    /*------------------
+        Preloader
+    --------------------*/
     $(window).on('load', function () {
         $(".loader").fadeOut();
         $("#preloder").delay(200).fadeOut("slow");
 
+        /*------------------
+            Gallery filter
+        --------------------*/
         $('.gallery-controls ul li').on('click', function() {
             $('.gallery-controls ul li').removeClass('active');
             $(this).addClass('active');
@@ -22,16 +37,25 @@
 
     });
 
+    /*------------------
+        Background Set
+    --------------------*/
     $('.set-bg').each(function () {
         var bg = $(this).data('setbg');
         $(this).css('background-image', 'url(' + bg + ')');
     });
 
+    /*------------------
+		Navigation
+	--------------------*/
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
     });
 
+    /*------------------
+		Menu Hover
+	--------------------*/
     $(".header-section .nav-menu .mainmenu ul li").on('mousehover', function() {
         $(this).addClass('active');
     });
@@ -39,6 +63,9 @@
         $('.header-section .nav-menu .mainmenu ul li').removeClass('active');
     });
 
+    /*------------------
+        Carousel Slider
+    --------------------*/
     $(".hero-items").owlCarousel({
         loop: true,
         margin: 0,
@@ -52,6 +79,9 @@
         autoHeight: false,
     });
 
+    /*------------------
+        Testimonial Slider
+    --------------------*/
    $(".testimonial-slider").owlCarousel({
         loop: true,
         margin: 0,
@@ -64,6 +94,9 @@
         autoplay: true,
     });
 
+    /*------------------
+        Magnific Popup
+    --------------------*/
     $('.video-popup').magnificPopup({
         type: 'iframe'
     });
@@ -72,8 +105,14 @@
         type: 'image'
     });
 
+    /*------------------
+        Magnific Popup
+    --------------------*/
     $('.show-result-select').niceSelect();
 
+    /*------------------
+       Timetable Filter
+    --------------------*/
     $('.timetable-controls ul li').on('click', function() {
         var tsfilter = $(this).data('tsfilter');
         $('.timetable-controls ul li').removeClass('active');

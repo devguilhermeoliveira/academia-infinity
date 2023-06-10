@@ -1,5 +1,6 @@
 ;(function ($, document, window) {
     var
+    // default settings object.
         defaults = {
             label: 'MENU',
             duplicate: true,
@@ -43,8 +44,13 @@
     function Plugin(element, options) {
         this.element = element;
 
+        // jQuery has an extend method which merges the contents of two or
+        // more objects, storing the result in the first object. The first object
+        // is generally empty as we don't want to alter the default options for
+        // future instances of the plugin
         this.settings = $.extend({}, defaults, options);
 
+        // Don't remove IDs by default if duplicate is false
         if (!this.settings.duplicate && !options.hasOwnProperty("removeIds")) {
           this.settings.removeIds = false;
         }
@@ -62,12 +68,14 @@
             iconClass,
             menuBar;
 
+        // clone menu if needed
         if (settings.duplicate) {
             $this.mobileNav = menu.clone();
         } else {
             $this.mobileNav = menu;
         }
 
+        // remove IDs if set
         if (settings.removeIds) {
           $this.mobileNav.removeAttr('id');
           $this.mobileNav.find('*').each(function (i, e) {
@@ -75,6 +83,7 @@
           });
         }
 
+        // remove classes if set
         if (settings.removeClasses) {
             $this.mobileNav.removeAttr('class');
             $this.mobileNav.find('*').each(function (i, e) {
@@ -82,6 +91,7 @@
             });
         }
 
+        // remove styles if set
         if (settings.removeStyles) {
             $this.mobileNav.removeAttr('style');
             $this.mobileNav.find('*').each(function (i, e) {
@@ -89,6 +99,7 @@
             });
         }
 
+        // styling class for the button
         iconClass = prefix + '_icon';
 
         if (settings.label === '') {
@@ -99,6 +110,8 @@
             settings.parentTag = 'a href="#"';
         }
 
+        // create menu bar
+        $this.mobileNav.attr('class', prefix + '_nav');
         menuBar = $('<div class="' + prefix + '_menu"></div>');
 		if (settings.brand !== '') {
 			var brand = $('<div class="' + prefix + '_brand">'+settings.brand+'</div>');
