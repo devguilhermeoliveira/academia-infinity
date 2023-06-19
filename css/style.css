@@ -7,6 +7,30 @@ body {
 	font-smoothing: antialiased;
 }
 
+/* Estilização da barra de rolagem */
+::-webkit-scrollbar {
+	width: 10px; /* Largura da barra de rolagem */
+  }
+  
+  /* Track (faixa) da barra de rolagem */
+  ::-webkit-scrollbar-track {
+	background: #000000; /* Cor de fundo da faixa */
+  }
+  
+  /* Thumb (polegar) da barra de rolagem */
+  ::-webkit-scrollbar-thumb {
+	background: #6d236d; /* Cor do polegar */
+	border-radius: 8px; /* Borda arredondada */
+  }
+  
+  /* Thumb (polegar) da barra de rolagem ao passar o mouse */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #6d236d; /* Cor do polegar ao passar o mouse */
+	border-radius: 8px; /* Borda arredondada */
+  }
+  
+  
+
 h1,
 h2,
 h3,
